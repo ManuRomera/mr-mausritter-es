@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MR- Mausritter en español</title>
+<meta name="description" content="Mausritter en español para Foundry VTT v13. Equipo ilustrado, combate automatizado y herramientas de accesibilidad.">
+<style>
+:root{color-scheme:dark light;--bg:#1a1911;--panel:#282418;--ink:#f7ecd5;--muted:#d2c3a8;--accent:#f5b667;--link:#9bdfc5}
+@media(prefers-color-scheme:light){:root{--bg:#f8f2e6;--panel:#fffaf2;--ink:#211d17;--muted:#675742;--accent:#813a12;--link:#25654f}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.55 'Iowan Old Style',Georgia,serif}
+.hero{margin:0 auto;max-width:110rem}.hero img{width:100%;display:block}.hero-content,main{max-width:60rem;margin:auto;padding:2.75rem clamp(1rem,6vw,3rem)}
+h1,h2,strong,.actions,footer{font-family:'Avenir Next',Arial,sans-serif}h1{font-size:clamp(1.8rem,5vw,3rem);line-height:1.1;margin:0}
+h2{border-top:1px solid var(--muted);padding-top:.8rem;color:var(--accent);font-size:1.55rem}
+.actions{display:flex;gap:.75rem;flex-wrap:wrap}.actions a{border:1px solid var(--accent);padding:.7rem 1rem;text-decoration:none;color:var(--accent);font-weight:700}
+.actions a:first-child{background:var(--accent);color:var(--bg)}a{color:var(--link)}a:focus-visible{outline:2px solid var(--link);outline-offset:3px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));gap:1rem}.card{border-top:3px solid var(--accent);background:var(--panel);padding:1rem 1.2rem}.card strong{display:block;color:var(--link)}
+pre{overflow-x:auto;background:var(--panel);padding:1rem;color:var(--link)}footer{padding:2rem 1rem;text-align:center;color:var(--muted);font-size:.85rem}
+</style>
+</head>
+<body>
+<header class="hero">
+  <img src="img/banner.webp" alt="" width="1800" height="600">
+  <div class="hero-content">
+    <h1>Mausritter en español</h1>
+    <p>Equipo ilustrado, combate automatizado y accesibilidad para jugar a Mausritter en Foundry VTT v13.</p>
+    <div class="actions">
+      <a href="https://github.com/ManuRomera/mr-mausritter-es/releases/latest">Última versión</a>
+      <a href="https://github.com/ManuRomera/mr-mausritter-es">Repositorio</a>
+    </div>
+  </div>
+</header>
+<main>
+  <h2>Qué trae</h2>
+  <div class="grid">
+    <div class="card"><strong>En español</strong>Interfaz y trasfondos ampliados. Localiza 110 entradas de compendio con Babele.</div>
+    <div class="card"><strong>Equipo</strong>80 objetos y condiciones de Reservoir Mice y Requesón en Waterdeep.</div>
+    <div class="card"><strong>Combate</strong>Daño por objetivo, armadura, salvación crítica y gasto de usos configurable.</div>
+    <div class="card"><strong>Mesa</strong>Modo oscuro, alto contraste, ficha resumida e inventario manejable con teclado.</div>
+  </div>
+  <h2>Instalar en Foundry</h2>
+  <p>Con Mausritter 0.6.1 instalado y Foundry VTT v13, abre <strong>Add-on Modules → Install Module → Manifest URL</strong>.</p>
+  <pre><code>https://github.com/ManuRomera/mr-mausritter-es/releases/latest/download/module.json</code></pre>
+</main>
+<footer>MR- Mausritter en español is an independent production by Manu Romera and is not affiliated with Losing Games. It is published under the <a href="https://mausritter.com/third-party-licence/">Mausritter Third Party Licence</a>. Mausritter is copyright Losing Games.</footer>
+</body>
+</html>

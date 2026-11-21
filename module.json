@@ -1,0 +1,90 @@
+{
+  "id": "mr-mausritter-es",
+  "title": "MR- Mausritter en español",
+  "description": "Localización, accesibilidad, inventario sin arrastre, objetos de aventura y automatización de combate y usos de Mausritter.",
+  "version": "0.2.0",
+  "authors": [
+    {
+      "name": "Manu Romera",
+      "url": "https://github.com/ManuRomera"
+    }
+  ],
+  "compatibility": {
+    "minimum": "13",
+    "maximum": "13"
+  },
+  "relationships": {
+    "systems": [
+      {
+        "id": "mausritter",
+        "type": "system",
+        "compatibility": {
+          "minimum": "0.6.1"
+        }
+      }
+    ],
+    "recommends": [
+      {
+        "id": "babele",
+        "type": "module",
+        "reason": "Traducción de los cinco compendios base."
+      }
+    ]
+  },
+  "esmodules": [
+    "scripts/main.mjs"
+  ],
+  "styles": [
+    "styles/mesa.css",
+    "styles/combat.css"
+  ],
+  "languages": [
+    {
+      "lang": "es",
+      "name": "Español",
+      "path": "lang/es.json"
+    },
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "packs": [
+    {
+      "name": "reservoir",
+      "label": "MR · Reservoir Mice — Equipo",
+      "path": "packs/reservoir",
+      "type": "Item",
+      "system": "mausritter",
+      "ownership": {
+        "PLAYER": "NONE",
+        "ASSISTANT": "NONE"
+      }
+    },
+    {
+      "name": "requeson",
+      "label": "MR · Requesón en Waterdeep — Objetos",
+      "path": "packs/requeson",
+      "type": "Item",
+      "system": "mausritter",
+      "ownership": {
+        "PLAYER": "NONE",
+        "ASSISTANT": "NONE"
+      }
+    }
+  ],
+  "url": "https://github.com/ManuRomera/mr-mausritter-es",
+  "manifest": "https://github.com/ManuRomera/mr-mausritter-es/releases/latest/download/module.json",
+  "download": "https://github.com/ManuRomera/mr-mausritter-es/releases/download/v0.2.0/mr-mausritter-es.zip",
+  "bugs": "https://github.com/ManuRomera/mr-mausritter-es/issues",
+  "readme": "https://github.com/ManuRomera/mr-mausritter-es#readme",
+  "changelog": "https://github.com/ManuRomera/mr-mausritter-es/blob/main/CHANGELOG.md",
+  "license": "https://github.com/ManuRomera/mr-mausritter-es/blob/main/LICENSE",
+  "media": [
+    {
+      "type": "cover",
+      "url": "https://raw.githubusercontent.com/ManuRomera/mr-mausritter-es/main/docs/img/banner.webp"
+    }
+  ]
+}

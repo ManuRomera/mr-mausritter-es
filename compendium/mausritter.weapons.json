@@ -1,0 +1,65 @@
+{
+  "label": "Armas",
+  "mapping": {
+    "description": "system.description",
+    "clear": "system.clear",
+    "condition": "system.desc",
+    "tag": "system.tag"
+  },
+  "entries": {
+    "Axe": {
+      "name": "Hacha",
+      "tag": "Media"
+    },
+    "Bow": {
+      "name": "Arco"
+    },
+    "Improvised": {
+      "name": "Arma improvisada",
+      "tag": "Improvisada"
+    },
+    "Cleaver": {
+      "name": "Cuchilla",
+      "tag": "Ligera"
+    },
+    "Hookarm": {
+      "name": "Garfio",
+      "tag": "Pesada"
+    },
+    "Pick": {
+      "name": "Pico",
+      "tag": "Media"
+    },
+    "Hammer": {
+      "name": "Martillo",
+      "tag": "Media"
+    },
+    "Sling": {
+      "name": "Honda"
+    },
+    "Sword": {
+      "name": "Espada",
+      "tag": "Media"
+    },
+    "Spear": {
+      "name": "Lanza",
+      "tag": "Pesada"
+    },
+    "Needle": {
+      "name": "Aguja",
+      "tag": "Ligera"
+    },
+    "Mace": {
+      "name": "Maza",
+      "tag": "Media"
+    },
+    "Warhammer": {
+      "name": "Martillo de guerra",
+      "tag": "Pesada"
+    },
+    "Dagger": {
+      "name": "Daga",
+      "tag": "Ligera"
+    }
+  }
+}

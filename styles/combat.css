@@ -1,0 +1,15 @@
+/* Combat controls share the accessibility palette and keyboard focus of the sheets. */
+.mrm-chat :is(.mrm-combat-action, .mrm-usage) {
+  background: var(--mrm-surface);
+  color: var(--mrm-ink);
+  border: 1px solid var(--mrm-line);
+  border-radius: .25rem;
+  display: block;
+  font-size: var(--mrm-text-size);
+  min-height: 2rem;
+  margin: .4rem 0 0;
+  padding: .3rem .5rem;
+}
+.mrm-chat .mrm-combat-action { width: 100%; }
+.mrm-chat .mrm-combat-action:disabled { opacity: .7; }
+.mrm-chat .mrm-combat ul { margin: .35em 0; padding-inline-start: 1.2em; }

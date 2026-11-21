@@ -1,0 +1,17 @@
+{
+  "label": "Armaduras",
+  "mapping": {
+    "description": "system.description",
+    "clear": "system.clear",
+    "condition": "system.desc",
+    "tag": "system.tag"
+  },
+  "entries": {
+    "Light Armor": {
+      "name": "Armadura ligera"
+    },
+    "Heavy Armor": {
+      "name": "Armadura pesada"
+    }
+  }
+}

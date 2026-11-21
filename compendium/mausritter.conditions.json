@@ -1,0 +1,41 @@
+{
+  "label": "Condiciones",
+  "mapping": {
+    "description": "system.description",
+    "clear": "system.clear",
+    "condition": "system.desc",
+    "tag": "system.tag"
+  },
+  "entries": {
+    "Exhausted": {
+      "name": "Exhausto",
+      "clear": "Tras un descanso largo.",
+      "condition": ""
+    },
+    "Drained": {
+      "name": "Agotado de magia",
+      "clear": "Tras un descanso completo.",
+      "condition": "Desventaja en salvaciones de VOL."
+    },
+    "Frightened": {
+      "name": "Asustado",
+      "clear": "Tras un descanso corto.",
+      "condition": "Salvación de VOL para acercarte a lo que te asusta."
+    },
+    "Hungry": {
+      "name": "Hambriento",
+      "clear": "Después de comer.",
+      "condition": ""
+    },
+    "Injured": {
+      "name": "Herido",
+      "clear": "Tras un descanso completo.",
+      "condition": "Desventaja en salvaciones de FUE y DES."
+    },
+    "Custom": {
+      "name": "Personalizada",
+      "clear": "",
+      "condition": ""
+    }
+  }
+}

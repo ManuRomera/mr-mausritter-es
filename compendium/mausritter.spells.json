@@ -1,0 +1,50 @@
+{
+  "label": "Hechizos",
+  "entries": {
+    "Restore": {
+      "name": "Restaurar"
+    },
+    "Invisibility": {
+      "name": "Invisibilidad"
+    },
+    "Catnip": {
+      "name": "Hierba gatera"
+    },
+    "Heal": {
+      "name": "Curar"
+    },
+    "Grow": {
+      "name": "Crecer"
+    },
+    "Darkness": {
+      "name": "Oscuridad"
+    },
+    "Fireball": {
+      "name": "Bola de fuego"
+    },
+    "Ghost Beetle": {
+      "name": "Escarabajo fantasma"
+    },
+    "Knock": {
+      "name": "Abrir"
+    },
+    "Invisible Ring": {
+      "name": "Anillo invisible"
+    },
+    "Magic Missile": {
+      "name": "Proyectil mágico"
+    },
+    "Light": {
+      "name": "Luz"
+    },
+    "Be Understood": {
+      "name": "Hacerse entender"
+    },
+    "Fear": {
+      "name": "Miedo"
+    },
+    "Grease": {
+      "name": "Grasa"
+    }
+  }
+}
