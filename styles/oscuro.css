@@ -1,0 +1,138 @@
+/* Generado por tools/oscuro.py a partir de systems/mausritter/styles/mausritter.css: no editar a mano */
+:root.mrm-dark .window-app .window-content { background: #201e1a !important; }
+:root.mrm-dark .mausritter ::-webkit-scrollbar-thumb { background: #36312a !important; border: 1px solid #5a5040 !important; }
+:root.mrm-dark .mausritter .white { color: #fff2d9 !important; }
+:root.mrm-dark .mausritter .darkgrey { color: #cbbfa6 !important; }
+:root.mrm-dark .mausritter .red { color: #ff8a7a !important; }
+:root.mrm-dark .list-roll:hover, :root.mrm-dark .list-roll:focus, :root.mrm-dark .rollable:hover, :root.mrm-dark .rollable:focus { color: #fff2d9 !important; }
+:root.mrm-dark .mausritter .char-header h1.charname input { background: #201e1a !important; border: 4px solid #a79270 !important; }
+:root.mrm-dark .mausritter .tox .tox-editor-container { background: #201e1a !important; }
+:root.mrm-dark .mausritter .tabs { border-top: 2px solid #a79270 !important; border-bottom: 2px solid #a79270 !important; }
+:root.mrm-dark .mausritter .items-list .item { border-bottom: 1px solid #5a5040 !important; }
+:root.mrm-dark .mausritter .skills-list .item { border-bottom: 1px solid #5a5040 !important; }
+:root.mrm-dark .mausritter .roll-image { border-color: #5a5040 !important; background: #201e1a !important; }
+:root.mrm-dark .mausritter .items-list .skill-name { color: #fff2d9 !important; background: #433c32 !important; }
+:root.mrm-dark .mausritter .items-list .skill-stat { color: #fff2d9 !important; }
+:root.mrm-dark .mausritter .tab-select { color: #fff2d9 !important; }
+:root.mrm-dark .mausritter .stresstext { color: #fff2d9 !important; }
+:root.mrm-dark .mausritter .smallcircle-input { border: 4px solid #a79270 !important; }
+:root.mrm-dark .mausritter .mainstatmod-input { border: 2px solid #a79270 !important; }
+:root.mrm-dark .mausritter .mainstatmod-title { color: #cbbfa6 !important; }
+:root.mrm-dark .mausritter .greyText { color: #cbbfa6 !important; }
+:root.mrm-dark .mausritter .darkGreyText { color: #fff2d9 !important; }
+:root.mrm-dark .mausritter .current-max-label { border: 0px solid #a79270 !important; color: #cbbfa6 !important; }
+:root.mrm-dark .mausritter .blockborder { border: 2px solid #a79270 !important; background: linear-gradient(
+		90deg,
+		#201e1a 0%,
+		#201e1a 34%,
+		#201e1a 20%,
+		#201e1a 100%
+	) !important; }
+:root.mrm-dark .mausritter .blockborder-mini { border: 2px solid #a79270 !important; background: linear-gradient(
+		90deg,
+		#201e1a 0%,
+		#201e1a 44%,
+		#201e1a 20%,
+		#201e1a 100%
+	) !important; }
+:root.mrm-dark .mausritter .minmaxwrapper { border: 2px solid #a79270 !important; }
+:root.mrm-dark .mausritter .minmax-input { border: 0px solid #a79270 !important; }
+:root.mrm-dark .mausritter .seperatorLine { border-bottom: 2px solid #a79270 !important; }
+:root.mrm-dark .mausritter .valuewrapper { border: 4px solid #a79270 !important; }
+:root.mrm-dark .mausritter .slant { border-right: 2px solid #a79270 !important; }
+:root.mrm-dark .mausritter .stresslabel { background: #433c32 !important; }
+:root.mrm-dark .mausritter .mainstatlabel { background: #433c32 !important; }
+:root.mrm-dark .mausritter .mainstattext { color: #fff2d9 !important; }
+:root.mrm-dark .mausritter .circle-input { border: 4px solid #a79270 !important; }
+:root.mrm-dark .mausritter .textarea-input { border: 2px solid #a79270 !important; background: #201e1a !important; }
+:root.mrm-dark .mausritter .square-input { border: 4px solid #a79270 !important; background-color: #201e1a !important; }
+:root.mrm-dark .mausritter .savetext { color: #fff2d9 !important; }
+:root.mrm-dark .mausritter .savebackground { background: #433c32 !important; }
+:root.mrm-dark .mausritter .creature-header-grid { background: #433c32 !important; }
+:root.mrm-dark .mausritter .creature-header { color: #fff2d9 !important; }
+:root.mrm-dark .mausritter .creature-abilities { background: #433c32 !important; border: 2px solid #5a5040 !important; outline: 5px solid #a79270 !important; }
+:root.mrm-dark .mausritter .overlay { background-color: rgba(255, 255, 255, 0) !important; }
+:root.mrm-dark .mausritter .whiteline { border-top: 2px solid #5a5040 !important; }
+:root.mrm-dark .mausritter .creaturename { color: #fff2d9 !important; }
+:root.mrm-dark .mausritter .creaturestat { color: #fff2d9 !important; }
+:root.mrm-dark .mausritter .creaturedescription { border: 2px solid #a79270 !important; }
+:root.mrm-dark .mausritter .creature-ability-title { color: #fff2d9 !important; }
+:root.mrm-dark .mausritter .creature-ability-text { color: #fff2d9 !important; }
+:root.mrm-dark .mausritter .headerinputtext { color: #fff2d9 !important; }
+:root.mrm-dark .mausritter .header-border { border: 2px solid #a79270 !important; background: linear-gradient(
+		90deg,
+		#201e1a 0%,
+		#201e1a 34%,
+		#201e1a 20%,
+		#201e1a 100%
+	) !important; }
+:root.mrm-dark .mausritter .creature-header-border { background: linear-gradient(
+		90deg,
+		#201e1a 0%,
+		#201e1a 25%,
+		#201e1a 5%,
+		#201e1a 100%
+	) !important; }
+:root.mrm-dark .mausritter .fa-circle { color: #fff2d9 !important; background: #201e1a !important; }
+:root.mrm-dark .mausritter .portrait { border: 2px solid #a79270 !important; }
+:root.mrm-dark .mausritter .portrait-creature { border: 2px solid #a79270 !important; }
+:root.mrm-dark .mausritter .rollcontainer { background: #201e1a !important; border: 2px solid #a79270 !important; }
+:root.mrm-dark .mausritter .rollh1 { border-bottom: 2px solid #a79270 !important; background: #201e1a !important; }
+:root.mrm-dark .mausritter .rollweaponh1 { background: #433c32 !important; color: #fff2d9 !important; }
+:root.mrm-dark .mausritter .rollmods { color: #cbbfa6 !important; }
+:root.mrm-dark .mausritter .rollattribute { color: #fff2d9 !important; }
+:root.mrm-dark .mausritter .roll-result { border: 2px solid #a79270 !important; }
+:root.mrm-dark .mausritter .roll-target { background: #201e1a !important; color: #fff2d9 !important; }
+:root.mrm-dark .mausritter .roll-targetbox { border: 2px solid #a79270 !important; }
+:root.mrm-dark .mausritter .roll-damage { color: #ff8a7a !important; }
+:root.mrm-dark .mausritter .roll-damagebox { border: 2px solid #ff8a7a !important; color: #ff8a7a !important; }
+:root.mrm-dark .mausritter .item-container { background-color: #201e1a !important; }
+:root.mrm-dark .mausritter .item-bag-container { border: 2px solid #a79270 !important; color: #fff2d9 !important; }
+:root.mrm-dark .mausritter .item-bag-text { color: #cbbfa6 !important; }
+:root.mrm-dark .mausritter .item-slot-dashed { border: 2px dashed #a79270 !important; }
+:root.mrm-dark .mausritter .item-slot-header { color: #cbbfa6 !important; }
+:root.mrm-dark .mausritter .item-slot-footer { color: #cbbfa6 !important; }
+:root.mrm-dark .mausritter .item-card { background-color: #201e1a !important; border: 2px solid #a79270 !important; }
+:root.mrm-dark .mausritter .item-card-header { border-bottom: 1px solid #a79270 !important; color: #fff2d9 !important; }
+:root.mrm-dark .mausritter .item-card-header-noborder { color: #fff2d9 !important; }
+:root.mrm-dark .mausritter .item-card-chat { color: #cbbfa6 !important; }
+:root.mrm-dark .mausritter .item-card-tag { color: #fff2d9 !important; background: #201e1a !important; }
+:root.mrm-dark .mausritter .item-card-desc { color: #fff2d9 !important; }
+:root.mrm-dark .mausritter .item-card-clear { color: #fff2d9 !important; }
+:root.mrm-dark .mausritter .item-card-clear-text { color: #fff2d9 !important; }
+:root.mrm-dark .mausritter .item-card-damage { border: 1px solid #a79270 !important; background: #201e1a !important; color: #fff2d9 !important; }
+:root.mrm-dark .mausritter .item-card-field-container { background-color: #201e1a !important; border: 2px solid #a79270 !important; }
+:root.mrm-dark .mausritter .item-card-max { color: #cbbfa6 !important; }
+:root.mrm-dark .mausritter .sheet-tabs { border-top: 2px solid #a79270 !important; border-bottom: 2px solid #a79270 !important; }
+:root.mrm-dark .mausritter .item-img { border-color: #a79270 !important; }
+:root.mrm-dark .mausritter .sheet-header-maus .item-text { background: #201e1a !important; border-color: #a79270 !important; }
+/* base de ventanas: el sistema fuerza theme-light en sus hojas */
+:root.mrm-dark .mausritter.sheet .window-content, :root.mrm-dark .mausritter.sheet form, :root.mrm-dark .mrm-native .window-content { background: #201e1a !important; color: #fff2d9 !important; }
+:root.mrm-dark .mausritter.sheet .window-header, :root.mrm-dark .mrm-native .window-header { background: #141210 !important; color: #fff2d9 !important; border-bottom: 1px solid #5a5040 !important; }
+:root.mrm-dark :is(.mausritter, .mrm-native) :is(input, textarea, select):not([type=radio], [type=checkbox]) { background-color: #2c2821 !important; color: #fff2d9 !important; border-color: #5a5040 !important; }
+:root.mrm-dark :is(.mausritter, .mrm-native) :is(input, textarea)::placeholder { color: #8f846f !important; }
+:root.mrm-dark :is(.mausritter, .mrm-native) select { color-scheme: dark; }
+:root.mrm-dark :is(.mausritter, .mrm-native) :is(button, .dialog-button):not(.header-control) { background: #36312a !important; color: #fff2d9 !important; border-color: #5a5040 !important; }
+:root.mrm-dark :is(.mausritter, .mrm-native) :is(button, .dialog-button):not(.header-control):hover { background: #433c32 !important; }
+:root.mrm-dark :is(.mausritter, .mrm-native) .tabs .item { color: #cbbfa6 !important; }
+:root.mrm-dark :is(.mausritter, .mrm-native) .tabs .item.active { color: #fff2d9 !important; }
+/* estilos en línea de las plantillas del sistema */
+:root.mrm-dark :is(.mausritter, .mrm-native) [style*="color: rgb(22,22,22)"], :root.mrm-dark :is(.mausritter, .mrm-native) [style*="color: rgb(22, 22, 22)"] { color: #fff2d9 !important; }
+:root.mrm-dark :is(.mausritter, .mrm-native) [style*="color: grey"] { color: #cbbfa6 !important; }
+:root.mrm-dark :is(.mausritter, .mrm-native) [style*="solid rgb(22, 22, 22)"] { border-color: #a79270 !important; }
+/* cartas de objeto: el color propio del objeto queda como tinte bajo un velo oscuro */
+:root.mrm-dark .mausritter .item-card { box-shadow: inset 0 0 0 999px rgba(32, 30, 26, .86) !important; border-color: #a79270 !important; }
+:root.mrm-dark .mausritter .item-card :is(.item-card-title, .item-card-tag, .item-card-desc, .item-card-clear, .item-card-clear-text, .item-card-damage) { color: #fff2d9 !important; }
+/* iconos oficiales (dibujo negro sobre carta blanca): se invierten; el arte en color conserva sus colores */
+:root.mrm-dark :is(.mausritter, .mrm-native) img[src*="systems/mausritter/images/icons/"], :root.mrm-dark .chat-message img[src*="systems/mausritter/images/icons/"] { filter: invert(.92) sepia(.25) hue-rotate(-10deg); }
+/* casillas y puntos de elección dibujados a mano: el nativo oscuro apenas distingue activado de desactivado */
+:root.mrm-dark :is(.mausritter, .mrm-native) :is(input[type=radio], input[type=checkbox]) { -webkit-appearance: none; appearance: none; width: 18px; height: 18px; min-width: 18px; margin: 0 .2em; flex: none; background: #2c2821 !important; border: 2px solid #a79270 !important; box-shadow: none; cursor: pointer; }
+:root.mrm-dark :is(.mausritter, .mrm-native) input[type=radio] { border-radius: 50% !important; }
+:root.mrm-dark :is(.mausritter, .mrm-native) input[type=checkbox] { border-radius: 4px !important; }
+:root.mrm-dark :is(.mausritter, .mrm-native) input[type=radio]:checked { background: radial-gradient(circle, #fff2d9 0 42%, #2c2821 46%) !important; border-color: #fff2d9 !important; }
+:root.mrm-dark :is(.mausritter, .mrm-native) input[type=checkbox]:checked { background: #fff2d9 !important; border-color: #fff2d9 !important; box-shadow: inset 0 0 0 3px #2c2821 !important; }
+/* chat */
+:root.mrm-dark .chat-message { background: #1a1815 !important; border-color: #5a5040 !important; color: #fff2d9 !important; }
+:root.mrm-dark .chat-message :is(.message-header, .message-sender, .message-metadata, .message-metadata a, .message-content, .flavor-text, h1, h2, h3, h4, h5, p, li, strong, em) { color: #fff2d9 !important; }
+:root.mrm-dark .chat-message :is(.dice-roll, .dice-result, .dice-formula, .dice-total, .dice-tooltip, .part-header, .table-draw .table-results li) { background: #2c2821 !important; color: #fff2d9 !important; border-color: #5a5040 !important; }
+:root.mrm-dark .chat-message :is(a.inline-roll, a.content-link) { background: #36312a !important; color: #fff2d9 !important; border-color: #5a5040 !important; }

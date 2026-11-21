@@ -1,5 +1,5 @@
 // Native 0.6.1 character grid positions. Width and height are kept in the system document.
-import { button, dialog, esc, fold, itemType, number, tr, visible, writable } from "./common.mjs";
+import { button, dialog, esc, fold, icon, itemType, number, tr, visible, writable } from "./common.mjs";
 
 const slots = [
   ["mainPaw", -270, -150], ["offPaw", -270, -20], ["body1", -140, -150], ["body2", -140, -20],
@@ -70,10 +70,10 @@ export async function choosePosition(actor, item, placementOnly = false) {
   const choices = () => [...destinations(actor, item), ...destinations(actor, item, !rotation(item))];
   if (!choices().length) { ui.notifications.warn(tr("noRoom")); return; }
   const result = await foundry.applications.api.DialogV2.input({
-    window: {title: tr("moveTitle", {name: item.name})}, classes: ["mrm"],
+    window: {title: tr("moveTitle", {name: item.name}), icon: icon("move")}, classes: ["mrm"],
     content: `<label>${esc(tr("slot"))}<select name="position">${choices().map(({id, turned}) =>
       `<option value="${id}:${Number(turned)}">${esc(tr(id))} · ${esc(tr(turned ? "rotated" : "upright"))}</option>`).join("")}</select></label>`,
-    ok: {label: tr("confirm")}, rejectClose: false
+    ok: {label: tr("confirm"), icon: icon("confirm")}, rejectClose: false
   });
   if (!result || !writable(actor)) return;
   const dest = choices().find(({id, turned}) => `${id}:${Number(turned)}` === result.position);
@@ -115,7 +115,7 @@ export function openInventory(actor) {
   if (!visible(actor)) return;
   const app = dialog(tr("inventoryTitle", {name: actor.name}), `<div class="mrm-panel">
     <label>${esc(tr("search"))}<input type="search" data-mrm-search></label>
-    <div data-mrm-rows class="mrm-results"></div></div>`);
+    <div data-mrm-rows class="mrm-results"></div></div>`, undefined, 630, "inventory");
   let hook;
   app.addEventListener("render", () => {
     const root = app.element;

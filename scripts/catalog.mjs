@@ -16,7 +16,7 @@ export async function openCatalog(actor) {
         ${["item", "weapon", "armor", "condition", "spell", "storage"].map(type =>
           `<option value="${type}">${esc(itemType({type}))}</option>`).join("")}</select></label>
     </div>
-    <p aria-live="polite" data-mrm-status></p><div class="mrm-results" data-mrm-results></div></div>`);
+    <p aria-live="polite" data-mrm-status></p><div class="mrm-results" data-mrm-results></div></div>`, undefined, 630, "catalog");
   app.addEventListener("render", () => {
     const root = app.element;
     const source = root.querySelector("[data-mrm-source]");

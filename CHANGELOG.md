@@ -1,5 +1,12 @@
 # Historial de cambios
 
+## 0.2.1
+
+- Modo oscuro completo: se genera desde el CSS del propio sistema (`tools/oscuro.py`) y cubre fichas, hojas de objeto, diálogos, pestañas, casillas y tarjetas del chat. Los iconos oficiales de Mausritter se invierten para verse sobre fondo oscuro.
+- Iconos: las acciones del módulo pasan a la cabecera de la ventana (Ficha resumida, Inventario, Catálogo y Accesibilidad justo antes de Cerrar), con ayuda emergente; botones y diálogos llevan icono.
+- Corregido: el botón de cerrar de los diálogos podía perder su icono por el CSS del módulo.
+- *EN:* Full dark mode generated from the system stylesheet (sheets, dialogs, tabs, checkboxes, chat cards; official icons inverted). Module actions moved to icon buttons in the window header, Accessibility next to Close. Fixed dialog close icons broken by module CSS.
+
 ## 0.2.0
 
 - Integra Mausritter Damage Helper en los ajustes y el chat del módulo.

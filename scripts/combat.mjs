@@ -226,7 +226,7 @@ async function resolveCritical(message, source, actorUuid, control) {
     const result = text(success ? "CriticalSuccess" : setting("autoCritical") ? "CriticalFailure" : "CriticalManual", {name});
     const recap = `${esc(text("CriticalRoll", {name, value: receipt.strengthAfter}))}<br>${esc(result)}`;
     await actor.unsetFlag(ID, `combatReceipts.${source}`);
-    control.textContent = text("CriticalResolved", {name});
+    (control.querySelector("span") ?? control).textContent = text("CriticalResolved", {name});
     control.dataset.done = "true";
     await roll.toMessage({speaker: ChatMessage.getSpeaker({actor}), flavor: recap, ...audience(message)});
     return true;
@@ -241,11 +241,11 @@ function isInjured(actor) {
 async function rollCritical(actor) {
   const labels = [["1d20", "Maus.RollNormal"], ["2d20kl", "Maus.RollAdvantage"], ["2d20kh", "Maus.RollDisadvantage"]];
   const dialog = await foundry.applications.api.DialogV2.input({
-    window: {title: text("ResolveCritical", {name: actor.name})},
+    window: {title: text("ResolveCritical", {name: actor.name}), icon: "fa-solid fa-heart-crack"},
     classes: ["mrm", "mrm-window"],
     content: `<label>${esc(game.i18n.localize("Maus.RollSelectType"))}<select name="formula">${labels.map(([formula, label]) =>
       `<option value="${formula}" ${formula === "2d20kh" && isInjured(actor) ? "selected" : ""}>${esc(game.i18n.localize(label))}</option>`).join("")}</select></label>`,
-    ok: {label: game.i18n.localize("Maus.Roll")}, rejectClose: false
+    ok: {label: game.i18n.localize("Maus.Roll"), icon: "fa-solid fa-dice-d20"}, rejectClose: false
   });
   return labels.some(([formula]) => formula === dialog?.formula) ? new Roll(dialog.formula).evaluate() : null;
 }
@@ -258,11 +258,13 @@ async function ensureInjured(actor) {
   }]);
 }
 
-function action(anchor, label, execute, errorKey) {
+// El texto va en un <span> para poder cambiarlo sin perder el icono.
+function action(anchor, label, execute, errorKey, icon = "fa-heart-crack") {
   const control = document.createElement("button");
   control.type = "button";
   control.className = "mrm-combat-action";
-  control.textContent = label;
+  control.innerHTML = `<i class="fa-solid ${icon}" inert></i> <span></span>`;
+  control.querySelector("span").textContent = label;
   control.addEventListener("click", async () => {
     control.disabled = true;
     try { await execute(control); }
@@ -291,9 +293,9 @@ function renderCombat(message, html) {
       await applyDamage(message, damage);
       if (flag(message, "applied")) {
         button.dataset.done = "true";
-        button.textContent = text("Applied");
+        button.querySelector("span").textContent = text("Applied");
       }
-    }, "DamageError");
+    }, "DamageError", "fa-burst");
     if (flag(message, "applied")) control.disabled = true;
   }
   const critical = message.getFlag(ID, "criticalChecks");

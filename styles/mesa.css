@@ -49,12 +49,13 @@
   border: 1px solid var(--mrm-line);
   border-radius: .3rem;
 }
-.mrm :is(input, select), .mrm :is(button, summary), .mrm-toolbar button {
+/* nunca tocar los botones de icono (cabecera de ventana: la fuente de iconos está en el propio botón) */
+.mrm .window-content :is(input, select, summary, button:not([class*="fa-"])) {
   color: var(--mrm-ink);
   font-family: inherit;
   font-size: inherit;
 }
-.mrm button, .mrm-toolbar button {
+.mrm .window-content button:not([class*="fa-"]) {
   background: var(--mrm-surface);
   border: 1px solid var(--mrm-line);
   min-height: 2.15rem;
@@ -81,11 +82,14 @@
   border: 2px solid var(--mrm-line); border-radius: .3rem; pointer-events: none; overflow-wrap: anywhere; }
 .mrm-card-tip[hidden] { display: none; }
 .mrm :focus-visible, .mrm-native :focus-visible, .mrm-chat :focus-visible { outline: 3px solid var(--mrm-focus); outline-offset: 2px; }
-.mrm-header .mrm-native .window-header:not(:hover):not(:focus-within) a.header-button:not(.close) {
-  font-size: 0; min-width: 24px; text-align: center;
-}
-.mrm-header .mrm-native .window-header a.header-button i { font-size: .9rem; }
-.mrm-readable :is(.mrm, .mrm-native, .mrm-chat) :is(input, select, textarea, p, label, h1, h2, h3, summary, button, .item-card-title, .headerinputtext, .rollh1, .rollh2) {
+/* cabecera solo con iconos: el nombre queda en la ayuda emergente y en aria-label */
+.mrm-header .mrm-native .window-header a.header-button { font-size: 0; min-width: 26px; text-align: center; }
+.mrm-header .mrm-native .window-header a.header-button i { font-size: .95rem; margin: 0; }
+.mrm-native .window-header a.mrm-preferences { order: 1; }
+.mrm-native .window-header a.close { order: 2; }
+.mrm-toolbar.mrm-anchor { padding: 0; margin: 0; border: 0; min-height: 0; background: none; }
+.mrm button i[class*="fa-"], .mrm-chat .mrm-combat-action i { margin-inline-end: .3em; }
+.mrm-readable :is(.mrm, .mrm-native, .mrm-chat) :is(input, select, textarea, p, label, h1, h2, h3, summary, button:not([class*="fa-"]), .item-card-title, .headerinputtext, .rollh1, .rollh2) {
   font-family: Verdana, Arial, sans-serif !important;
   letter-spacing: .025em;
 }
@@ -96,19 +100,20 @@
 .mrm-scaled .mrm-native :is(input, select, textarea, .item-card-title, .item-card-tag, .item-card-desc),
 .mrm-scaled .mrm-chat :is(.rollcontainer, .description .body) { font-size: var(--mrm-text-size); }
 .mrm-native .item-card-title { overflow-wrap: anywhere; }
-:is(.mrm-dark, .mrm-contrast) .mrm-native .window-content,
-:is(.mrm-dark, .mrm-contrast) .mrm-native .item-container,
-:is(.mrm-dark, .mrm-contrast) .mrm-chat {
+/* alto contraste (el modo oscuro completo está en oscuro.css, generado desde el CSS del sistema) */
+:root.mrm-contrast .mrm-native .window-content,
+:root.mrm-contrast .mrm-native .item-container,
+:root.mrm-contrast .mrm-chat {
   color: var(--mrm-ink) !important; background: var(--mrm-bg) !important;
 }
-:is(.mrm-dark, .mrm-contrast) .mrm-native :is(form, input, select, textarea, label, .headerinputtext, .statName, .item-slot-header, .item-slot-footer, .item-bag-text, .item-card-title, .item-card-tag, .item-card-desc, .item-card-clear, .item-card-clear-text, a),
-:is(.mrm-dark, .mrm-contrast) .mrm-chat :is(.mausritter, .rollcontainer, .rollh1, .rollh2, .rollweaponh1, .roll-targetbox, .roll-damagebox, .rollmods, .valuetext, .value, .description, .description .body, .description .header) {
+:root.mrm-contrast .mrm-native :is(form, input, select, textarea, label, .headerinputtext, .statName, .item-slot-header, .item-slot-footer, .item-bag-text, .item-card-title, .item-card-tag, .item-card-desc, .item-card-clear, .item-card-clear-text, a),
+:root.mrm-contrast .mrm-chat :is(.mausritter, .rollcontainer, .rollh1, .rollh2, .rollweaponh1, .roll-targetbox, .roll-damagebox, .rollmods, .valuetext, .value, .description, .description .body, .description .header) {
   color: var(--mrm-ink) !important;
   border-color: var(--mrm-line) !important;
 }
-:is(.mrm-dark, .mrm-contrast) .mrm-native :is(input, select, textarea, .item-card),
-:is(.mrm-dark, .mrm-contrast) .mrm-chat :is(.rollcontainer, .description, .roll-targetbox, .roll-damagebox) {
+:root.mrm-contrast .mrm-native :is(input, select, textarea, .item-card),
+:root.mrm-contrast .mrm-chat :is(.rollcontainer, .description, .roll-targetbox, .roll-damagebox) {
   background: var(--mrm-surface) !important;
 }
-:is(.mrm-dark, .mrm-contrast) .mrm-native .item-card > .overlay { opacity: .12; }
-:is(.mrm-dark, .mrm-contrast) .mrm-native :is(.item-card-damage, .item-card-damage *, .pip-button, .mrm-toolbar button) { color: var(--mrm-ink) !important; }
+:root.mrm-contrast .mrm-native .item-card > .overlay { opacity: .12; }
+:root.mrm-contrast .mrm-native :is(.item-card-damage, .item-card-damage *, .pip-button, .mrm-toolbar button) { color: var(--mrm-ink) !important; }

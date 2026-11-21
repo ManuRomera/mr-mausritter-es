@@ -1,6 +1,6 @@
 import {listenCombat, registerCombatSettings} from "./combat.mjs";
 // Hooks add opt-in presentation and controls to the installed system's own documents.
-import {button, dialog, esc, get, ID, rootOf, settings, tr, visible, writable} from "./common.mjs";
+import {button, dialog, esc, get, icon, ID, rootOf, settings, tr, visible, writable} from "./common.mjs";
 import {describe, facts, openInventory} from "./inventory.mjs";
 import {openCatalog} from "./catalog.mjs";
 
@@ -16,13 +16,13 @@ function apply() {
 
 async function preferences() {
   const result = await foundry.applications.api.DialogV2.input({
-    window: {title: tr("preferences")}, classes: ["mrm", "mrm-window"],
+    window: {title: tr("preferences"), icon: icon("preferences")}, classes: ["mrm", "mrm-window"],
     content: `<div class="mrm-panel"><label>${esc(tr("scale"))}
       <input name="scale" type="number" min="90" max="160" step="5" value="${get("scale")}"></label>
       ${settings.filter(([, type]) => type === Boolean).map(([key]) => `<label class="mrm-switch">
         <input type="checkbox" name="${key}" ${get(key) ? "checked" : ""}>
         <span>${esc(tr(key))}<small>${esc(tr(`${key}Hint`))}</small></span></label>`).join("")}</div>`,
-    ok: {label: tr("save")}, rejectClose: false
+    ok: {label: tr("save"), icon: icon("save")}, rejectClose: false
   });
   if (!result) return;
   for (const [key, type] of settings) await game.settings.set(ID, key,
@@ -47,7 +47,7 @@ function summary(actor) {
     <div class="mrm-actions">${writable(actor) && typeof actor.rollStat === "function" ? stat.map((key, index) =>
       actor.system.stats?.[key] ? `<button type="button" data-mrm-stat="${key}">${esc(tr("saveStat", {
         stat: game.i18n.localize(`Maus.${labels[index]}`)
-      }))}</button>` : "").join("") : ""}${button("inventory", "data-mrm-open-inv")}</div></div>`);
+      }))}</button>` : "").join("") : ""}${button("inventory", "data-mrm-open-inv")}</div></div>`, undefined, 630, "summary");
   app.addEventListener("render", () => app.element.addEventListener("click", event => {
     if (event.target.closest("[data-mrm-open-inv]")) return openInventory(actor);
     const key = event.target.closest("[data-mrm-stat]")?.dataset.mrmStat;
@@ -118,7 +118,7 @@ function sheets(app, html, actor, item) {
   for (const control of window.querySelectorAll(".window-header a.header-button")) {
     control.tabIndex = 0;
     const name = control.textContent.trim() || control.title || (control.classList.contains("close") ? tr("close") : "");
-    if (name) control.setAttribute("aria-label", name);
+    if (name) { control.setAttribute("aria-label", name); control.dataset.tooltip ??= name; }
     if (control.dataset.mrmHeader) continue;
     control.dataset.mrmHeader = "true";
     control.addEventListener("keydown", event => {
@@ -130,21 +130,13 @@ function sheets(app, html, actor, item) {
   keyboard(root);
   fieldLabels(root);
   if (root.querySelector("[data-mrm-toolbar]")) return;
+  // Las acciones del módulo van como iconos en la cabecera (getHeaderButtons); aquí solo queda el ancla de la ayuda.
   const bar = document.createElement("div");
   bar.className = "mrm-toolbar";
   bar.setAttribute("data-mrm-toolbar", "");
-  bar.innerHTML = button("preferences", 'data-mrm-do="preferences"');
-  if (actor) bar.innerHTML += button("summary", 'data-mrm-do="summary"')
-    + button("inventory", 'data-mrm-do="inventory"') + button("catalog", 'data-mrm-do="catalog"');
-  if (item) bar.innerHTML += `<span class="mrm-facts">${esc(facts(item))}</span>`;
+  if (item) bar.innerHTML = `<span class="mrm-facts">${esc(facts(item))}</span>`;
+  else bar.classList.add("mrm-anchor");
   (root.matches("form") ? root : root.querySelector("form") ?? root).prepend(bar);
-  bar.addEventListener("click", event => {
-    const action = event.target.closest("[data-mrm-do]")?.dataset.mrmDo;
-    if (action === "preferences") return preferences();
-    if (action === "summary") return summary(actor);
-    if (action === "inventory") return openInventory(actor);
-    if (action === "catalog") return openCatalog(actor);
-  });
   if (!actor || !visible(actor)) return;
   const resources = new Map([
     [".stat-roll[data-key='strength']", "strengthHint"],
@@ -193,6 +185,17 @@ Hooks.once("ready", () => {
   }
   game.modules.get(ID).api = {openCatalog, openInventory, preferences};
 });
+// Iconos de cabecera: las acciones a la izquierda y Accesibilidad justo antes de Cerrar.
+function headerButtons(app, buttons, actor) {
+  if (!isMaus()) return;
+  const make = (key, onclick) => ({label: tr(key), class: `mrm-${key}`, icon: icon(key), onclick});
+  if (actor && visible(actor)) buttons.unshift(make("summary", () => summary(actor)),
+    make("inventory", () => openInventory(actor)), make("catalog", () => openCatalog(actor)));
+  const close = buttons.findIndex(b => b.class === "close");
+  buttons.splice(close < 0 ? buttons.length : close, 0, make("preferences", preferences));
+}
+Hooks.on("getActorSheetHeaderButtons", (app, buttons) => headerButtons(app, buttons, app.actor));
+Hooks.on("getItemSheetHeaderButtons", (app, buttons) => headerButtons(app, buttons));
 Hooks.on("renderActorSheet", (app, html) => { if (isMaus()) sheets(app, html, app.actor); });
 Hooks.on("renderItemSheet", (app, html) => { if (isMaus()) sheets(app, html, null, app.item); });
 Hooks.on("renderChatMessageHTML", (_message, html) => {
