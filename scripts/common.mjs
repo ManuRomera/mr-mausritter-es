@@ -10,7 +10,7 @@ export const itemType = item => game.i18n.localize(`TYPES.Item.${item.type}`);
 export const fold = value => String(value).normalize("NFD").replace(/\p{Diacritic}/gu, "").toLowerCase();
 export const settings = [
   ["dark", Boolean, false], ["contrast", Boolean, false], ["readable", Boolean, false],
-  ["motion", Boolean, false], ["help", Boolean, true], ["header", Boolean, true],
+  ["motion", Boolean, false], ["help", Boolean, true],
   ["scale", Number, 100]
 ];
 export const get = key => game.settings.get(ID, key);

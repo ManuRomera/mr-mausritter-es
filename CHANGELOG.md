@@ -1,5 +1,10 @@
 # Historial de cambios
 
+## 0.2.2
+
+- La cabecera de las fichas muestra siempre solo iconos (también los de Foundry y otros módulos); el nombre aparece al pasar el ratón. El botón de cerrar vuelve a verse siempre. Se retira el ajuste «Cabecera solo con iconos».
+- *EN:* Sheet headers now always show icons only (including Foundry's and other modules' buttons), with the name on hover, so Close is always visible. The "Icon-only header" setting is removed.
+
 ## 0.2.1
 
 - Modo oscuro completo: se genera desde el CSS del propio sistema (`tools/oscuro.py`) y cubre fichas, hojas de objeto, diálogos, pestañas, casillas y tarjetas del chat. Los iconos oficiales de Mausritter se invierten para verse sobre fondo oscuro.

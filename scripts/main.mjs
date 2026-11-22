@@ -119,6 +119,8 @@ function sheets(app, html, actor, item) {
     control.tabIndex = 0;
     const name = control.textContent.trim() || control.title || (control.classList.contains("close") ? tr("close") : "");
     if (name) { control.setAttribute("aria-label", name); control.dataset.tooltip ??= name; }
+    // Solo icono: el nombre queda en la ayuda emergente y en aria-label (así cabe siempre el botón de cerrar).
+    if (control.querySelector("i")) for (const node of [...control.childNodes]) if (node.nodeType === Node.TEXT_NODE) node.remove();
     if (control.dataset.mrmHeader) continue;
     control.dataset.mrmHeader = "true";
     control.addEventListener("keydown", event => {

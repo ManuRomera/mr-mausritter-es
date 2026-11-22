@@ -10,8 +10,6 @@
     "motionHint": "Removes transitions and animations from Mausritter panels.",
     "help": "Immediate help",
     "helpHint": "Show item details on hover or keyboard focus.",
-    "header": "Icon-only window header",
-    "headerHint": "Sheet header buttons show only their icon; the name appears on hover.",
     "scale": "Text size (%)",
     "preferences": "Accessibility",
     "close": "Close",
