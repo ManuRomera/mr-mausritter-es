@@ -1,5 +1,10 @@
 # Historial de cambios
 
+## 0.2.3
+
+- Declara la compatibilidad verificada con Foundry 13 y Mausritter 0.6.1: la versión ya no aparece en rojo («compatibilidad desconocida») en la lista de módulos.
+- *EN:* Declares verified compatibility with Foundry 13 and Mausritter 0.6.1, so the version badge is no longer red ("unknown compatibility").
+
 ## 0.2.2
 
 - La cabecera de las fichas muestra siempre solo iconos (también los de Foundry y otros módulos); el nombre aparece al pasar el ratón. El botón de cerrar vuelve a verse siempre. Se retira el ajuste «Cabecera solo con iconos».
