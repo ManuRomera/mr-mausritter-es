@@ -1,5 +1,10 @@
 # Historial de cambios
 
+## 0.2.4
+
+- Corregido: al abrir la pestaña Notas de la ficha aparecía un gran hueco en blanco arriba (el ancla de ayuda del módulo se estiraba).
+- *EN:* Fixed a large blank gap at the top of the character sheet when opening the Notes tab.
+
 ## 0.2.3
 
 - Declara la compatibilidad verificada con Foundry 13 y Mausritter 0.6.1: la versión ya no aparece en rojo («compatibilidad desconocida») en la lista de módulos.

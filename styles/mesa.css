@@ -88,7 +88,8 @@
 .mrm-native .window-header .window-title { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .mrm-native .window-header a.mrm-preferences { order: 1; }
 .mrm-native .window-header a.close { order: 2; }
-.mrm-toolbar.mrm-anchor { padding: 0; margin: 0; border: 0; min-height: 0; background: none; }
+.mrm-toolbar { flex: none; }
+.mrm-toolbar.mrm-anchor { padding: 0; margin: 0; border: 0; height: 0; min-height: 0; overflow: visible; background: none; }
 .mrm button i[class*="fa-"], .mrm-chat .mrm-combat-action i { margin-inline-end: .3em; }
 .mrm-readable :is(.mrm, .mrm-native, .mrm-chat) :is(input, select, textarea, p, label, h1, h2, h3, summary, button:not([class*="fa-"]), .item-card-title, .headerinputtext, .rollh1, .rollh2) {
   font-family: Verdana, Arial, sans-serif !important;
