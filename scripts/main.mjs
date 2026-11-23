@@ -84,16 +84,18 @@ function slotList(actor) {
   });
   return list;
 }
+const COMPACT_WIDTH = 460;
 function fitCompact(app) {
-  if (isCompact(app.actor)) requestAnimationFrame(() => app.setPosition({height: "auto"}));
+  if (!isCompact(app.actor)) return;
+  requestAnimationFrame(() => app.setPosition({width: Math.min(app.position.width, COMPACT_WIDTH), height: "auto"}));
 }
 function toggleCompact(app) {
   const on = !isCompact(app.actor);
   try { on ? localStorage.setItem(compactKey(app.actor), "1") : localStorage.removeItem(compactKey(app.actor)); } catch { /* sin almacenamiento: solo esta vez */ }
-  if (on) app._mrmFullHeight = app.position.height;
+  if (on) app._mrmFull = {width: app.position.width, height: app.position.height};
   applyCompact(app);
   if (on) fitCompact(app);
-  else app.setPosition({height: app._mrmFullHeight ?? app.options.height});
+  else app.setPosition(app._mrmFull ?? {width: app.options.width, height: app.options.height});
 }
 
 const fixedLabels = {

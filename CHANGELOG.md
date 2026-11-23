@@ -1,5 +1,10 @@
 # Historial de cambios
 
+## 0.3.2
+
+- Ficha resumida más pequeña: la cabecera de la hoja se reduce entera manteniendo su estilo (también con pieles de otros módulos), se oculta el transfondo, la ventana pasa a 460 px de ancho y la lista de huecos va en una columna con letra menor. Al volver a la ficha completa recupera su tamaño.
+- *EN:* Smaller quick sheet: the sheet header is scaled down as a whole keeping its style (also with other modules' skins), background is hidden, the window becomes 460 px wide and the slot list is a single smaller column. The full sheet restores its size.
+
 ## 0.3.1
 
 - Ficha resumida: la cuadrícula de inventario se sustituye por una lista de huecos (patas, cuerpo y mochila 1-6) con el objeto que hay en cada uno, su daño y sus usos. Pulsar el nombre lo tira como en la cuadrícula; el lápiz abre su ficha. Agallas y Banco ya no aparecen; lo que no está en ningún hueco sale en «Sin colocar».
