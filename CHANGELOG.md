@@ -1,5 +1,10 @@
 # Historial de cambios
 
+## 0.3.0
+
+- **Ficha resumida** ya no abre otra ventana: transforma la propia hoja del personaje. Oculta signo, pelaje, apariencia, retrato, nivel, descripción y Notas, junta FUE/DES/VOL, PG, Pepitas y Agallas en una franja y deja el inventario a la vista. Conserva el estilo en modo claro, oscuro y alto contraste, y todo sigue siendo editable y tirable. El icono de la cabecera alterna entre resumida y completa y cada personaje la recuerda en tu navegador.
+- *EN:* **Quick sheet** no longer opens a separate window: it compacts the character sheet itself (hides sign, coat, look, portrait, level, description and Notes; stats, HP, pips and grit in one strip; inventory stays). Same style in light, dark and high-contrast modes, still fully editable and rollable. The header icon toggles it and each character remembers it per browser.
+
 ## 0.2.4
 
 - Corregido: al abrir la pestaña Notas de la ficha aparecía un gran hueco en blanco arriba (el ancla de ayuda del módulo se estiraba).

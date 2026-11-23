@@ -75,9 +75,6 @@
 .mrm-entry .mrm-actions { margin-top: .35rem; }
 .mrm-item-image { display: block; width: min(6rem, 40%); aspect-ratio: 1; object-fit: contain; margin-top: .5rem; }
 .mrm-facts { font-size: .88em; }
-.mrm-stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr)); gap: .4rem; margin: 0; }
-.mrm-stat-grid div { border: 1px solid var(--mrm-line); padding: .4rem; background: var(--mrm-surface); }
-.mrm-stat-grid dd { font-size: 1.3em; font-weight: 700; margin: 0; }
 .mrm-card-tip { position: absolute; top: 100%; left: 0; z-index: 3000; max-width: min(26rem, 95%); padding: .6rem;
   border: 2px solid var(--mrm-line); border-radius: .3rem; pointer-events: none; overflow-wrap: anywhere; }
 .mrm-card-tip[hidden] { display: none; }
@@ -119,3 +116,26 @@
 }
 :root.mrm-contrast .mrm-native .item-card > .overlay { opacity: .12; }
 :root.mrm-contrast .mrm-native :is(.item-card-damage, .item-card-damage *, .pip-button, .mrm-toolbar button) { color: var(--mrm-ink) !important; }
+
+/* Ficha resumida: la misma hoja del sistema, compactada. Solo se ocultan y recolocan piezas; colores y modo oscuro
+   siguen saliendo de las reglas del sistema y de oscuro.css, y todo sigue siendo editable y tirable. */
+.mausritter.sheet.actor.mrm-resumida :is(img.portrait, .centercol, nav.sheet-tabs, .tab[data-tab="notes"], .header > .header-border:not(:first-child)) { display: none !important; }
+.mausritter.sheet.actor.mrm-resumida .header > .header-border:first-child { width: 100% !important; }
+.mausritter.sheet.actor.mrm-resumida .header-fields.header-grid {
+  grid-template-areas: "header header" "abilities portrait";
+  grid-template-columns: 1fr 15em;
+  align-items: start;
+}
+.mausritter.sheet.actor.mrm-resumida .abilities {
+  width: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 10px;
+  align-content: start;
+}
+.mausritter.sheet.actor.mrm-resumida .abilities > :first-child { grid-column: 1; grid-row: 1 / span 4; }
+.mausritter.sheet.actor.mrm-resumida .abilities > :not(:first-child) { grid-column: 2; }
+.mausritter.sheet.actor.mrm-resumida .abilities > :nth-child(2) { grid-row: 1; }
+.mausritter.sheet.actor.mrm-resumida .abilities > :nth-child(4) { display: none; }
+.mausritter.sheet.actor.mrm-resumida .window-content { flex: 0 0 auto; height: auto; }
+.mausritter.sheet.actor.mrm-resumida .window-content > form { height: auto; flex: none; }

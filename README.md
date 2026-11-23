@@ -32,7 +32,7 @@ Activa **MR- Mausritter en español** en tu mundo y selecciona **Español** en l
 | 📚 **Compendios base** | Con Babele se localizan 110 entradas de armas, armaduras, equipo, condiciones y hechizos. Las descripciones de los hechizos se cargan desde el sistema. |
 | 🧰 **Equipo de aventura** | 32 objetos y condiciones de **Reservoir Mice** y 48 de **Requesón en Waterdeep**, con 41 ilustraciones. Consulta también los objetos que tienes disponibles en el mundo y en los compendios. |
 | ⚔️ **Combate automatizado** | Aplica daño a los objetivos del chat, calcula armadura, PG y FUE, y resuelve salvaciones críticas. Gasto automático de usos configurable. |
-| ♿ **Mesa** | Modo oscuro, alto contraste, texto ampliable, fuente legible, movimiento reducido, ayuda contextual, cabecera compacta y **ficha resumida**. |
+| ♿ **Mesa** | Modo oscuro, alto contraste, texto ampliable, fuente legible, movimiento reducido, ayuda contextual, cabecera solo con iconos y **ficha resumida**. |
 | 🎒 **Inventario en lista** | Busca, consulta y usa el equipo. Cambia el dado de daño, ajusta usos y asigna huecos sin arrastrar. |
 
 ## ⚔️ Combate en dos clics
@@ -43,7 +43,7 @@ El DJ activo gestiona el daño de las tiradas que puede ver. Cuando no hay DJ di
 
 ## ♿ Mesa, ficha resumida e inventario
 
-Abre un personaje y pulsa el icono de **Accesibilidad** (♿, junto a Cerrar en la cabecera) para elegir los ajustes de lectura de tu cliente. Con **Ficha resumida** ves FUE, DES, VOL, PG, armadura y pepitas, y puedes tirar salvaciones. Desde **Inventario en lista** puedes usar o mover objetos con el teclado y abrir su ficha completa.
+Abre un personaje y pulsa el icono de **Accesibilidad** (♿, junto a Cerrar en la cabecera) para elegir los ajustes de lectura de tu cliente. El icono de **Ficha resumida** compacta la propia hoja: FUE, DES, VOL, PG, Pepitas y Agallas en una franja y el inventario a la vista, con el mismo estilo en claro y oscuro y todo editable y tirable. Vuelve a pulsarlo para ver la ficha completa. Desde **Inventario en lista** puedes usar o mover objetos con el teclado y abrir su ficha completa.
 
 **Catálogo de objetos** muestra los documentos a los que tienes acceso. El DJ puede consultar los dos paquetes de aventura incluidos y los objetos disponibles de **La Tumba de las Mil Puertas** y **Aventuras en La Finca** si los tiene en el mundo.
 

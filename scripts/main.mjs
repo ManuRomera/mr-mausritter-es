@@ -1,6 +1,6 @@
 import {listenCombat, registerCombatSettings} from "./combat.mjs";
 // Hooks add opt-in presentation and controls to the installed system's own documents.
-import {button, dialog, esc, get, icon, ID, rootOf, settings, tr, visible, writable} from "./common.mjs";
+import {esc, get, icon, ID, rootOf, settings, tr, visible} from "./common.mjs";
 import {describe, facts, openInventory} from "./inventory.mjs";
 import {openCatalog} from "./catalog.mjs";
 
@@ -29,31 +29,37 @@ async function preferences() {
     type === Boolean ? result[key] === true || result[key] === "on" : Math.min(160, Math.max(90, Number(result[key]) || 100)));
 }
 
-function summary(actor) {
-  if (!visible(actor)) return;
-  const stat = ["strength", "dexterity", "will"];
-  const labels = ["Strength", "Dexterity", "Will"];
-  const health = actor.system.health;
-  const field = (label, value) => `<div><dt>${esc(label)}</dt><dd>${esc(value)}</dd></div>`;
-  const app = dialog(tr("summaryTitle", {name: actor.name}), `<div class="mrm-panel">
-    <dl class="mrm-stat-grid">
-    ${stat.map((key, index) => {
-      const value = actor.system.stats?.[key];
-      return value ? field(game.i18n.localize(`Maus.${labels[index]}`), `${value.value} / ${value.max}`) : "";
-    }).join("")}
-    ${health ? field(game.i18n.localize("Maus.ActorHP"), `${health.value} / ${health.max}`) : ""}
-    ${field(tr("armorLabel"), actor.system.armor ?? 0)}
-    ${actor.system.pips ? field(game.i18n.localize("Maus.Pips"), actor.system.pips.value) : ""}</dl>
-    <div class="mrm-actions">${writable(actor) && typeof actor.rollStat === "function" ? stat.map((key, index) =>
-      actor.system.stats?.[key] ? `<button type="button" data-mrm-stat="${key}">${esc(tr("saveStat", {
-        stat: game.i18n.localize(`Maus.${labels[index]}`)
-      }))}</button>` : "").join("") : ""}${button("inventory", "data-mrm-open-inv")}</div></div>`, undefined, 630, "summary");
-  app.addEventListener("render", () => app.element.addEventListener("click", event => {
-    if (event.target.closest("[data-mrm-open-inv]")) return openInventory(actor);
-    const key = event.target.closest("[data-mrm-stat]")?.dataset.mrmStat;
-    if (stat.includes(key) && writable(actor)) actor.rollStat(actor.system.stats[key]);
-  }), {once: true});
-  return app.render({force: true});
+// Ficha resumida: la propia hoja se compacta (clase en la ventana, estilos en mesa.css), sin abrir otra ventana.
+// Sigue siendo la hoja del sistema: se edita, se tira y se usa el inventario igual. Se recuerda por personaje en este navegador.
+const compactKey = actor => `${ID}.resumida.${actor.id}`;
+function isCompact(actor) {
+  try { return localStorage.getItem(compactKey(actor)) === "1"; } catch { return false; }
+}
+function applyCompact(app) {
+  const el = rootOf(app.element);
+  if (!el || app.actor?.type !== "character") return;
+  const on = isCompact(app.actor);
+  el.classList.toggle("mrm-resumida", on);
+  const control = el.querySelector(".window-header a.mrm-summary");
+  if (control) {
+    const name = tr(on ? "fullSheet" : "summary");
+    control.querySelector("i")?.setAttribute("class", `fa-solid ${on ? "fa-expand" : "fa-compress"}`);
+    control.dataset.tooltip = name;
+    control.setAttribute("aria-label", name);
+    control.setAttribute("aria-pressed", String(on));
+  }
+  if (on && app._tabs?.[0]?.active !== "drag") app._tabs?.[0]?.activate("drag");
+}
+function fitCompact(app) {
+  if (isCompact(app.actor)) requestAnimationFrame(() => app.setPosition({height: "auto"}));
+}
+function toggleCompact(app) {
+  const on = !isCompact(app.actor);
+  try { on ? localStorage.setItem(compactKey(app.actor), "1") : localStorage.removeItem(compactKey(app.actor)); } catch { /* sin almacenamiento: solo esta vez */ }
+  if (on) app._mrmFullHeight = app.position.height;
+  applyCompact(app);
+  if (on) fitCompact(app);
+  else app.setPosition({height: app._mrmFullHeight ?? app.options.height});
 }
 
 const fixedLabels = {
@@ -191,14 +197,19 @@ Hooks.once("ready", () => {
 function headerButtons(app, buttons, actor) {
   if (!isMaus()) return;
   const make = (key, onclick) => ({label: tr(key), class: `mrm-${key}`, icon: icon(key), onclick});
-  if (actor && visible(actor)) buttons.unshift(make("summary", () => summary(actor)),
+  if (actor && visible(actor)) buttons.unshift(...(actor.type === "character" ? [make("summary", () => toggleCompact(app))] : []),
     make("inventory", () => openInventory(actor)), make("catalog", () => openCatalog(actor)));
   const close = buttons.findIndex(b => b.class === "close");
   buttons.splice(close < 0 ? buttons.length : close, 0, make("preferences", preferences));
 }
 Hooks.on("getActorSheetHeaderButtons", (app, buttons) => headerButtons(app, buttons, app.actor));
 Hooks.on("getItemSheetHeaderButtons", (app, buttons) => headerButtons(app, buttons));
-Hooks.on("renderActorSheet", (app, html) => { if (isMaus()) sheets(app, html, app.actor); });
+Hooks.on("renderActorSheet", (app, html) => {
+  if (!isMaus()) return;
+  sheets(app, html, app.actor);
+  applyCompact(app);
+  fitCompact(app);
+});
 Hooks.on("renderItemSheet", (app, html) => { if (isMaus()) sheets(app, html, null, app.item); });
 Hooks.on("renderChatMessageHTML", (_message, html) => {
   if (isMaus() && html.querySelector(".mausritter .rollcontainer")) {
