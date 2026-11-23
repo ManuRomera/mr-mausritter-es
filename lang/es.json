@@ -52,6 +52,7 @@
     "armor": "Armadura {value}",
     "cost": "{value} pepitas",
     "clear": "Retirada",
+    "unplaced": "Sin colocar",
     "pack1": "Mochila 1",
     "pack2": "Mochila 2",
     "pack3": "Mochila 3",

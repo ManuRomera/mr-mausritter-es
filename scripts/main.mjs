@@ -1,7 +1,7 @@
 import {listenCombat, registerCombatSettings} from "./combat.mjs";
 // Hooks add opt-in presentation and controls to the installed system's own documents.
 import {esc, get, icon, ID, rootOf, settings, tr, visible} from "./common.mjs";
-import {describe, facts, openInventory} from "./inventory.mjs";
+import {describe, facts, openInventory, slotContents} from "./inventory.mjs";
 import {openCatalog} from "./catalog.mjs";
 
 const isMaus = () => game.system.id === "mausritter";
@@ -49,6 +49,40 @@ function applyCompact(app) {
     control.setAttribute("aria-pressed", String(on));
   }
   if (on && app._tabs?.[0]?.active !== "drag") app._tabs?.[0]?.activate("drag");
+  el.querySelector(".mrm-slots")?.remove();
+  if (on) el.querySelector(".sheet-body")?.prepend(slotList(app.actor));
+}
+
+// En la ficha resumida la cuadrícula se sustituye por una lista de huecos. Pulsar el nombre tira el objeto
+// igual que en la cuadrícula del sistema (actor.rollItem); el lápiz abre su ficha.
+function slotList(actor) {
+  const list = document.createElement("ol");
+  list.className = "mrm-slots";
+  list.innerHTML = slotContents(actor).map(({id, here}) => `<li class="mrm-slot${here.length ? "" : " mrm-slot-empty"}">
+    <span class="mrm-slot-place">${esc(tr(id))}</span>
+    <span class="mrm-slot-items">${here.length ? here.map(({item, first}) => {
+      const s = item.system;
+      const info = [s.weapon?.dmg1 ? [s.weapon.dmg1, s.weapon.dmg2].filter(Boolean).join("/") : "",
+        Number(s.pips?.max) > 0 ? `${Number(s.pips.value) || 0}/${s.pips.max}` : ""].filter(Boolean).join(" · ");
+      return `<span class="mrm-slot-item${first ? "" : " mrm-slot-more"}">
+        <a class="mrm-slot-roll" role="button" tabindex="0" data-item-id="${item.id}" data-tooltip="${esc(facts(item))}">${esc(item.name)}</a>
+        ${info ? `<small>${esc(info)}</small>` : ""}
+        <a class="mrm-slot-edit" role="button" tabindex="0" data-item-id="${item.id}" aria-label="${esc(tr("sheet"))}" data-tooltip="${esc(tr("sheet"))}"><i class="fa-solid fa-pen-to-square" inert></i></a></span>`;
+    }).join("") : "—"}</span></li>`).join("");
+  const run = event => {
+    const target = event.target.closest("[data-item-id]");
+    const item = actor.items.get(target?.dataset.itemId);
+    if (!item) return;
+    if (target.classList.contains("mrm-slot-edit")) return item.sheet.render(true);
+    if (actor.isOwner) actor.rollItem(item.id, {event});
+  };
+  list.addEventListener("click", run);
+  list.addEventListener("keydown", event => {
+    if (event.key !== "Enter" && event.key !== " ") return;
+    event.preventDefault();
+    run(event);
+  });
+  return list;
 }
 function fitCompact(app) {
   if (isCompact(app.actor)) requestAnimationFrame(() => app.setPosition({height: "auto"}));

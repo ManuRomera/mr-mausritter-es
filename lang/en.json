@@ -52,6 +52,7 @@
     "armor": "Armor {value}",
     "cost": "{value} pips",
     "clear": "Remove",
+    "unplaced": "Not placed",
     "pack1": "Pack 1",
     "pack2": "Pack 2",
     "pack3": "Pack 3",

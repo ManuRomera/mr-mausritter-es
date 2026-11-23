@@ -1,5 +1,10 @@
 # Historial de cambios
 
+## 0.3.1
+
+- Ficha resumida: la cuadrícula de inventario se sustituye por una lista de huecos (patas, cuerpo y mochila 1-6) con el objeto que hay en cada uno, su daño y sus usos. Pulsar el nombre lo tira como en la cuadrícula; el lápiz abre su ficha. Agallas y Banco ya no aparecen; lo que no está en ningún hueco sale en «Sin colocar».
+- *EN:* Quick sheet: the inventory grid becomes a list of slots (paws, body, pack 1-6) showing each item with damage and uses; click a name to roll it, the pencil opens its sheet. Grit and Bank are hidden; items in no slot are listed as "Not placed".
+
 ## 0.3.0
 
 - **Ficha resumida** ya no abre otra ventana: transforma la propia hoja del personaje. Oculta signo, pelaje, apariencia, retrato, nivel, descripción y Notas, junta FUE/DES/VOL, PG, Pepitas y Agallas en una franja y deja el inventario a la vista. Conserva el estilo en modo claro, oscuro y alto contraste, y todo sigue siendo editable y tirable. El icono de la cabecera alterna entre resumida y completa y cada personaje la recuerda en tu navegador.

@@ -39,6 +39,27 @@ function destinations(actor, item, turned = rotation(item)) {
   }));
 }
 
+// Qué objeto ocupa cada hueco (patas, cuerpo y mochila), según su posición en la cuadrícula del sistema.
+// Un objeto grande aparece en todos sus huecos; `first` marca el primero.
+export function slotContents(actor) {
+  const placed = actor.items.filter(item => item.system.sheet).map(item => {
+    const {currentX = 0, currentY = 0} = item.system.sheet;
+    return {item, area: box(number(currentX), number(currentY), ...size(item, rotation(item)))};
+  });
+  const seen = new Set();
+  const inSlot = ([, x, y]) => placed.filter(({area}) => x > area[0] && x < area[2] && y > area[1] && y < area[3]);
+  const rows = slots.slice(0, 10).map(slot => ({id: slot[0], here: inSlot(slot).map(({item}) => {
+    const first = !seen.has(item.id);
+    seen.add(item.id);
+    return {item, first};
+  })}));
+  // Agallas y Banco no se listan; lo que no cae en ningún hueco (p. ej. recién añadido) va aparte para no perderlo.
+  const grit = new Set(slots.slice(10).flatMap(slot => inSlot(slot).map(({item}) => item.id)));
+  const loose = actor.items.filter(item => !seen.has(item.id) && !grit.has(item.id));
+  if (loose.length) rows.push({id: "unplaced", here: loose.map(item => ({item, first: true}))});
+  return rows;
+}
+
 export function positionPatch(dest) {
   const {x, y, w, h, turned} = dest;
   return {active: true, currentX: x, currentY: y, initialX: x, initialY: y,

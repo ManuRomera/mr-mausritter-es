@@ -139,3 +139,18 @@
 .mausritter.sheet.actor.mrm-resumida .abilities > :nth-child(4) { display: none; }
 .mausritter.sheet.actor.mrm-resumida .window-content { flex: 0 0 auto; height: auto; }
 .mausritter.sheet.actor.mrm-resumida .window-content > form { height: auto; flex: none; }
+/* lista de huecos de la ficha resumida: hereda tinta y fuentes de la hoja (claro, oscuro y contraste) */
+.mausritter.sheet.actor.mrm-resumida .tab[data-tab="drag"] { display: none !important; }
+.mrm-slots { list-style: none; margin: 0; padding: 0 10px 10px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px 14px; }
+.mrm-slot { display: grid; grid-template-columns: 8.5em minmax(0, 1fr); align-items: baseline; gap: 8px; padding: 4px 0; border-bottom: 1px solid currentColor; }
+.mrm-slot-place { font-family: var(--font-medieval); opacity: .75; }
+.mrm-slot-items { display: grid; gap: 2px; min-width: 0; }
+.mrm-slot-item { display: flex; align-items: baseline; gap: 6px; min-width: 0; }
+.mrm-slot-roll { font-family: var(--font-medieval); font-size: 1.15em; cursor: pointer; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.mrm-slot-roll:hover, .mrm-slot-roll:focus-visible { text-decoration: underline; }
+.mrm-slot-more .mrm-slot-roll { opacity: .6; font-size: 1em; }
+.mrm-slot-item small { opacity: .75; white-space: nowrap; }
+.mrm-slot-edit { margin-inline-start: auto; opacity: .6; }
+.mrm-slot-edit:hover, .mrm-slot-edit:focus-visible { opacity: 1; }
+.mrm-slot-empty .mrm-slot-items { opacity: .45; }
+.mrm-slots > li:nth-child(11) { grid-column: 1 / -1; }

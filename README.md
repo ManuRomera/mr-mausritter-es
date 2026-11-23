@@ -43,7 +43,7 @@ El DJ activo gestiona el daño de las tiradas que puede ver. Cuando no hay DJ di
 
 ## ♿ Mesa, ficha resumida e inventario
 
-Abre un personaje y pulsa el icono de **Accesibilidad** (♿, junto a Cerrar en la cabecera) para elegir los ajustes de lectura de tu cliente. El icono de **Ficha resumida** compacta la propia hoja: FUE, DES, VOL, PG, Pepitas y Agallas en una franja y el inventario a la vista, con el mismo estilo en claro y oscuro y todo editable y tirable. Vuelve a pulsarlo para ver la ficha completa. Desde **Inventario en lista** puedes usar o mover objetos con el teclado y abrir su ficha completa.
+Abre un personaje y pulsa el icono de **Accesibilidad** (♿, junto a Cerrar en la cabecera) para elegir los ajustes de lectura de tu cliente. El icono de **Ficha resumida** compacta la propia hoja: FUE, DES, VOL, PG, Pepitas y Agallas en una franja y el inventario como lista de huecos (pulsa un objeto para tirarlo), con el mismo estilo en claro y oscuro y todo editable y tirable. Vuelve a pulsarlo para ver la ficha completa. Desde **Inventario en lista** puedes usar o mover objetos con el teclado y abrir su ficha completa.
 
 **Catálogo de objetos** muestra los documentos a los que tienes acceso. El DJ puede consultar los dos paquetes de aventura incluidos y los objetos disponibles de **La Tumba de las Mil Puertas** y **Aventuras en La Finca** si los tiene en el mundo.
 
